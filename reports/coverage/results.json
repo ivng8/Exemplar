@@ -47,8 +47,8 @@
         "error": null
       },
       {
-        "title": "standard case of words with no displaced letters",
-        "fullTitle": "WordleChecker standard case of words with no displaced letters",
+        "title": "there is a need for 2 of a letter but three appear in the guess so all 3 statuses appear",
+        "fullTitle": "WordleChecker there is a need for 2 of a letter but three appear in the guess so all 3 statuses appear",
         "status": "PASS",
         "error": null
       },
@@ -59,26 +59,44 @@
         "error": null
       },
       {
-        "title": "standard case of word that is purely correct",
-        "fullTitle": "WordleChecker standard case of word that is purely correct",
+        "title": "labels letter as wrong because duplicate letter is correct",
+        "fullTitle": "WordleChecker labels letter as wrong because duplicate letter is correct",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "standard case of correct word",
+        "fullTitle": "WordleChecker standard case of correct word",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "only needs two displacements of a duplicate letter",
+        "fullTitle": "WordleChecker only needs two displacements of a duplicate letter",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "needing one displacement because one correct letter is detected",
+        "fullTitle": "WordleChecker needing one displacement because one correct letter is detected",
         "status": "PASS",
         "error": null
       }
     ],
-    "pass": 10,
+    "pass": 13,
     "fail": 0
   },
   "stats": {
     "numFailedTestSuites": 0,
     "numFailedTests": 0,
     "numPassedTestSuites": 1,
-    "numPassedTests": 10,
+    "numPassedTests": 13,
     "numPendingTestSuites": 0,
     "numPendingTests": 0,
     "numRuntimeErrorTestSuites": 0,
     "numTodoTests": 0,
     "numTotalTestSuites": 1,
-    "numTotalTests": 10,
+    "numTotalTests": 13,
     "openHandles": [],
     "snapshot": {
       "added": 0,
@@ -96,21 +114,21 @@
       "unmatched": 0,
       "updated": 0
     },
-    "startTime": 1729644896208,
+    "startTime": 1729647792568,
     "success": false,
     "testResults": [
       {
         "leaks": false,
         "numFailingTests": 0,
-        "numPassingTests": 10,
+        "numPassingTests": 13,
         "numPendingTests": 0,
         "numTodoTests": 0,
         "openHandles": [],
         "perfStats": {
-          "end": 1729644896819,
-          "runtime": 577,
+          "end": 1729647793153,
+          "runtime": 551,
           "slow": false,
-          "start": 1729644896242
+          "start": 1729647792602
         },
         "skipped": false,
         "snapshot": {
@@ -158,7 +176,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 0,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker a letter displaced but for two different letters",
@@ -173,7 +191,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 1,
+            "duration": 2,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker still checks for a displaced letter after one is found",
@@ -218,7 +236,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 0,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker makes sure skip_indices adds found_index to avoid repeating indentification",
@@ -236,13 +254,13 @@
             "duration": 0,
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "WordleChecker standard case of words with no displaced letters",
+            "fullName": "WordleChecker there is a need for 2 of a letter but three appear in the guess so all 3 statuses appear",
             "invocations": 1,
             "location": null,
             "numPassingAsserts": 0,
             "retryReasons": [],
             "status": "passed",
-            "title": "standard case of words with no displaced letters"
+            "title": "there is a need for 2 of a letter but three appear in the guess so all 3 statuses appear"
           },
           {
             "ancestorTitles": [
@@ -263,16 +281,61 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 1,
+            "duration": 0,
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "WordleChecker standard case of word that is purely correct",
+            "fullName": "WordleChecker labels letter as wrong because duplicate letter is correct",
             "invocations": 1,
             "location": null,
             "numPassingAsserts": 0,
             "retryReasons": [],
             "status": "passed",
-            "title": "standard case of word that is purely correct"
+            "title": "labels letter as wrong because duplicate letter is correct"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker standard case of correct word",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "standard case of correct word"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker only needs two displacements of a duplicate letter",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "only needs two displacements of a duplicate letter"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 1,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker needing one displacement because one correct letter is detected",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "needing one displacement because one correct letter is detected"
           }
         ],
         "failureMessage": null

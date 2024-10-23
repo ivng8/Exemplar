@@ -54,9 +54,9 @@ describe('WordleChecker', () => {
   });
 
   // Normal case
-  it('standard case of words with no displaced letters', () => {
-    let checker = checkerFactory.createChecker('happykitty');
-    expect(checker.check('happymippc')).to.equal('happy-i---');
+  it('there is a need for 2 of a letter but three appear in the guess so all 3 statuses appear', () => {
+    let checker = checkerFactory.createChecker('hello');
+    expect(checker.check('lmlpl')).to.equal('?-l--');
   });
 
   // Normal case
@@ -66,8 +66,26 @@ describe('WordleChecker', () => {
   });
 
   // Normal case
-  it('standard case of word that is purely correct', () => {
-    let checker = checkerFactory.createChecker('mickey');
-    expect(checker.check('mickey')).to.equal('mickey');
+  it('labels letter as wrong because duplicate letter is correct', () => {
+    let checker = checkerFactory.createChecker('ramp');
+    expect(checker.check('meme')).to.equal('--m-');
+  });
+
+  // Normal case
+  it('standard case of correct word', () => {
+    let checker = checkerFactory.createChecker('watermelon');
+    expect(checker.check('watermelon')).to.equal('watermelon');
+  });
+
+  // Normal case
+  it('only needs two displacements of a duplicate letter', () => {
+    let checker = checkerFactory.createChecker('keggle');
+    expect(checker.check('ggpogp')).to.equal('??----');
+  });
+
+  // Normal case
+  it('needing one displacement because one correct letter is detected', () => {
+    let checker = checkerFactory.createChecker('keggle');
+    expect(checker.check('ggpgoo')).to.equal('?--g--');
   });
 });
