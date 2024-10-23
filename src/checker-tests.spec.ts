@@ -3,8 +3,10 @@
 import { expect } from 'chai';
 import { CheckerFactory } from './checker.factory';
 
-// On line 89 I removed the continue, introducing a bug for the edge case where 
-// words with duplicate letters will detect itself as misplaced instead of wrong.
+
+// On line 79 I removed the fact that skip_indices doesn't push letters that are found,
+// introducing a bug for the edge case where letters that are displaced don't get saved
+// causing duplicate misplaced letters to all get labeled as displaced.
 describe('WordleChecker', () => {
   let checkerFactory: CheckerFactory;
   beforeAll((): void => {
@@ -12,15 +14,27 @@ describe('WordleChecker', () => {
   });
 
   // Normal case
-  it('returns the guessed word when it matches the answer', () => {
-    let checker = checkerFactory.createChecker('a');
-    expect(checker.check('a')).to.equal('a');
+  it('looks for correct_indices before looking for found_index', () => {
+    let checker = checkerFactory.createChecker('hippy');
+    expect(checker.check('hihpy')).to.equal('hi-py');
   });
 
   // Normal case
   it('looks for correct_indices before looking for found_index', () => {
     let checker = checkerFactory.createChecker('hippy');
     expect(checker.check('hihpy')).to.equal('hi-py');
+  });
+
+  // Normal case
+  it('looks for correct_indices before looking for found_index', () => {
+    let checker = checkerFactory.createChecker('hippy');
+    expect(checker.check('hihpy')).to.equal('hi-py');
+  });
+
+  // Normal case
+  it('makes sure a letter found after the fact will still be incorrect instead of displaced', () => {
+    let checker = checkerFactory.createChecker('pihpy');
+    expect(checker.check('hihpy')).to.equal('-ihpy');
   });
 
   // Normal case
@@ -87,5 +101,23 @@ describe('WordleChecker', () => {
   it('needing one displacement because one correct letter is detected', () => {
     let checker = checkerFactory.createChecker('keggle');
     expect(checker.check('ggpgoo')).to.equal('?--g--');
+  });
+
+  // Normal case
+  it('needing one displacement because one correct letter is detected', () => {
+    let checker = checkerFactory.createChecker('keggle');
+    expect(checker.check('ggpgoo')).to.equal('?--g--');
+  });
+
+  // Normal case
+  it('makes sure all duplicates are incorrect instead of displaced when they have been filled in', () => {
+    let checker = checkerFactory.createChecker('keggle');
+    expect(checker.check('geggog')).to.equal('-egg--');
+  });
+
+  // Normal case
+  it('correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right', () => {
+    let checker = checkerFactory.createChecker('geeggee');
+    expect(checker.check('oggogog')).to.equal('-??-g--');
   });
 });
