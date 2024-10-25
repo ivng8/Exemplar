@@ -113,26 +113,50 @@
         "error": null
       },
       {
-        "title": "correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right",
-        "fullTitle": "WordleChecker correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right",
-        "status": "FAIL",
-        "error": "Error: Guesses must be the same length as the secret word (13 letters)\n    at CorrectChecker.check (C:\\Users\\Ivan\\Exemplar\\src\\checkers.ts:49:13)\n    at Object.check (C:\\Users\\Ivan\\Exemplar\\src\\checker-tests.spec.ts:127:20)\n    at Promise.then.completed (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\utils.js:231:10)\n    at _callCircusTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:252:3)\n    at _runTestsForDescribeBlock (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:126:9)\n    at _runTestsForDescribeBlock (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:121:9)\n    at run (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:71:3)\n    at runAndTransformResultsToJestFormat (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapterInit.js:122:21)\n    at jestAdapter (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:79:19)\n    at runTestInternal (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-runner\\build\\runTest.js:367:16)\n    at runTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-runner\\build\\runTest.js:444:34)"
+        "title": "preserves cases of the guess and still marks as correct",
+        "fullTitle": "WordleChecker preserves cases of the guess and still marks as correct",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "still marks as correct despite difference in case and preserves case of guess",
+        "fullTitle": "WordleChecker still marks as correct despite difference in case and preserves case of guess",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "throws error for guess length less than answer length",
+        "fullTitle": "WordleChecker throws error for guess length less than answer length",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "throws error for guess length more than answer length",
+        "fullTitle": "WordleChecker throws error for guess length more than answer length",
+        "status": "PASS",
+        "error": null
+      },
+      {
+        "title": "throws error for non-alphabetical characters in guess",
+        "fullTitle": "WordleChecker throws error for non-alphabetical characters in guess",
+        "status": "PASS",
+        "error": null
       }
     ],
-    "pass": 18,
-    "fail": 1
+    "pass": 23,
+    "fail": 0
   },
   "stats": {
-    "numFailedTestSuites": 1,
-    "numFailedTests": 1,
-    "numPassedTestSuites": 0,
-    "numPassedTests": 18,
+    "numFailedTestSuites": 0,
+    "numFailedTests": 0,
+    "numPassedTestSuites": 1,
+    "numPassedTests": 23,
     "numPendingTestSuites": 0,
     "numPendingTests": 0,
     "numRuntimeErrorTestSuites": 0,
     "numTodoTests": 0,
     "numTotalTestSuites": 1,
-    "numTotalTests": 19,
+    "numTotalTests": 23,
     "openHandles": [],
     "snapshot": {
       "added": 0,
@@ -150,21 +174,21 @@
       "unmatched": 0,
       "updated": 0
     },
-    "startTime": 1729814107305,
+    "startTime": 1729884952714,
     "success": false,
     "testResults": [
       {
         "leaks": false,
-        "numFailingTests": 1,
-        "numPassingTests": 18,
+        "numFailingTests": 0,
+        "numPassingTests": 23,
         "numPendingTests": 0,
         "numTodoTests": 0,
         "openHandles": [],
         "perfStats": {
-          "end": 1729814113489,
-          "runtime": 5677,
-          "slow": true,
-          "start": 1729814107812
+          "end": 1729884953303,
+          "runtime": 549,
+          "slow": false,
+          "start": 1729884952754
         },
         "skipped": false,
         "snapshot": {
@@ -182,7 +206,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 2,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker looks for correct_indices before looking for found_index",
@@ -257,7 +281,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 0,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker still checks for a displaced letter after one is found",
@@ -332,7 +356,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 0,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker standard case of words with no incorrect letters",
@@ -362,7 +386,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 1,
+            "duration": 0,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker standard case of correct word",
@@ -422,7 +446,7 @@
             "ancestorTitles": [
               "WordleChecker"
             ],
-            "duration": 0,
+            "duration": 1,
             "failureDetails": [],
             "failureMessages": [],
             "fullName": "WordleChecker makes sure all duplicates are incorrect instead of displaced when they have been filled in",
@@ -453,22 +477,78 @@
               "WordleChecker"
             ],
             "duration": 0,
-            "failureDetails": [
-              {}
-            ],
-            "failureMessages": [
-              "Error: Guesses must be the same length as the secret word (13 letters)\n    at CorrectChecker.check (C:\\Users\\Ivan\\Exemplar\\src\\checkers.ts:49:13)\n    at Object.check (C:\\Users\\Ivan\\Exemplar\\src\\checker-tests.spec.ts:127:20)\n    at Promise.then.completed (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\utils.js:231:10)\n    at _callCircusTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at _runTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:252:3)\n    at _runTestsForDescribeBlock (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:126:9)\n    at _runTestsForDescribeBlock (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:121:9)\n    at run (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\run.js:71:3)\n    at runAndTransformResultsToJestFormat (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapterInit.js:122:21)\n    at jestAdapter (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-circus\\build\\legacy-code-todo-rewrite\\jestAdapter.js:79:19)\n    at runTestInternal (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-runner\\build\\runTest.js:367:16)\n    at runTest (C:\\Users\\Ivan\\Exemplar\\node_modules\\jest-runner\\build\\runTest.js:444:34)"
-            ],
-            "fullName": "WordleChecker correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker preserves cases of the guess and still marks as correct",
             "invocations": 1,
             "location": null,
             "numPassingAsserts": 0,
             "retryReasons": [],
-            "status": "failed",
-            "title": "correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right"
+            "status": "passed",
+            "title": "preserves cases of the guess and still marks as correct"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker still marks as correct despite difference in case and preserves case of guess",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "still marks as correct despite difference in case and preserves case of guess"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker throws error for guess length less than answer length",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "throws error for guess length less than answer length"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker throws error for guess length more than answer length",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "throws error for guess length more than answer length"
+          },
+          {
+            "ancestorTitles": [
+              "WordleChecker"
+            ],
+            "duration": 0,
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "WordleChecker throws error for non-alphabetical characters in guess",
+            "invocations": 1,
+            "location": null,
+            "numPassingAsserts": 0,
+            "retryReasons": [],
+            "status": "passed",
+            "title": "throws error for non-alphabetical characters in guess"
           }
         ],
-        "failureMessage": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mWordleChecker › correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right\u001b[39m\u001b[22m\n\n    Guesses must be the same length as the secret word (13 letters)\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 47 |\u001b[39m   check(guess\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m string {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 48 |\u001b[39m     \u001b[36mif\u001b[39m (guess\u001b[33m.\u001b[39mlength \u001b[33m!==\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39manswer\u001b[33m.\u001b[39mlength) {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 49 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 50 |\u001b[39m         \u001b[32m'Guesses must be the same length as the '\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 51 |\u001b[39m         \u001b[33m+\u001b[39m \u001b[32m`secret word (${this.answer.length} letters)`\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 52 |\u001b[39m     }\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat CorrectChecker.check (\u001b[22m\u001b[2msrc/checkers.ts\u001b[2m:49:13)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.check (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/checker-tests.spec.ts\u001b[39m\u001b[0m\u001b[2m:127:20)\u001b[22m\u001b[2m\u001b[22m\n"
+        "failureMessage": null
       }
     ],
     "wasInterrupted": false

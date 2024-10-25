@@ -121,9 +121,39 @@ describe('WordleChecker', () => {
     expect(checker.check('oggogog')).to.equal('-??-g--');
   });
 
-  // Normal case
-  it('correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right', () => {
-    let checker = checkerFactory.createChecker('ggeeperggssps');
-    expect(checker.check('oggogog')).to.equal('-??-g--');
+    // Normal case
+    it("preserves cases of the guess and still marks as correct", () => {
+      const checker = checkerFactory.createChecker("keg");
+      expect(checker.check("kEg")).to.equal("kEg");
+    });
+
+    // Normal case
+  it("still marks as correct despite difference in case and preserves case of guess", () => {
+    const checker = checkerFactory.createChecker("KEG");
+    expect(checker.check("keg")).to.equal("keg");
+  });
+
+  // Edge case
+  it("throws error for guess length less than answer length", () => {
+    const checker = checkerFactory.createChecker("kegs");
+    expect(() => checker.check("keg")).to.throw(
+      "Guesses must be the same length as the secret word (4 letters)"
+    );
+  });
+
+  // Edge case
+  it("throws error for guess length more than answer length", () => {
+    const checker = checkerFactory.createChecker("keg");
+    expect(() => checker.check("kegs")).to.throw(
+      "Guesses must be the same length as the secret word (3 letters)"
+    );
+  });
+
+  // Edge case
+  it("throws error for non-alphabetical characters in guess", () => {
+    const checker = checkerFactory.createChecker("keg");
+    expect(() => checker.check("k!g")).to.throw(
+      "Guesses may only contain alphabetical characters (A-Z a-z)"
+    );
   });
 });
