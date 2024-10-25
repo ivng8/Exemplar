@@ -6,14 +6,24 @@ import { CheckerFactory } from './checker.factory';
 
 // On line 79 I removed the fact that skip_indices doesn't push letters that are found,
 // introducing a bug for the edge case where letters that are displaced don't get saved
-// causing duplicate misplaced letters to all get labeled as displaced.
+// causing duplicate misplaced letters to all get labeled as displaced.  The bug was
+// caught by 6/23 of my test suite.
+// On line 67 I removed pushing to the correct_indices set which will initialize
+// skip_indices as an empty set, introducing a bug for the edge case where letters
+// that are already in the correct spot will not be skipped when other letters are
+// being found. The bug was caught by 15/23 of my test suite.
+// On line 74 I removed the continue on the condition that correct_indices contains the
+// current index on iteration, introducing a bug for the edge case where the letters that
+// are already found still go into the find letter section which will in turn make
+// duplicate letters overwrite already correct letters. The bug was caught by 6/23
+// of my test suite.
 describe('WordleChecker', () => {
   let checkerFactory: CheckerFactory;
   beforeAll((): void => {
     checkerFactory = new CheckerFactory();
   });
 
-  // Normal case
+  // Edge case
   it('looks for correct_indices before looking for found_index', () => {
     let checker = checkerFactory.createChecker('hippy');
     expect(checker.check('hihpy')).to.equal('hi-py');
@@ -121,7 +131,7 @@ describe('WordleChecker', () => {
     expect(checker.check('oggogog')).to.equal('-??-g--');
   });
 
-    // Normal case
+    // Edge case
     it("preserves cases of the guess and still marks as correct", () => {
       const checker = checkerFactory.createChecker("keg");
       expect(checker.check("kEg")).to.equal("kEg");
