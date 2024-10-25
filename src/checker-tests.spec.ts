@@ -114,10 +114,16 @@ describe('WordleChecker', () => {
     let checker = checkerFactory.createChecker('keggle');
     expect(checker.check('geggog')).to.equal('-egg--');
   });
-
+  
   // Normal case
   it('correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right', () => {
     let checker = checkerFactory.createChecker('geeggee');
+    expect(checker.check('oggogog')).to.equal('-??-g--');
+  });
+
+  // Normal case
+  it('correctly labels duplicates by prioritizing correct then displaced then incorrect from left to right', () => {
+    let checker = checkerFactory.createChecker('ggeeperggssps');
     expect(checker.check('oggogog')).to.equal('-??-g--');
   });
 });
